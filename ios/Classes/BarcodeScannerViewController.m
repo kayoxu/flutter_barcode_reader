@@ -42,7 +42,7 @@
                              views:@{@"scanRect": _scanRect}]];
   [_scanRect startAnimating];
     self.scanner = [[MTBBarcodeScanner alloc] initWithPreviewView:_previewView];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_close_b"] style:UIBarButtonItemStylePlain  target:self action:@selector(cancel)];
   [self updateFlashButton];
 }
 
@@ -91,11 +91,20 @@
         return;
     }
     if (self.isFlashOn) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Flash Off"
-                                                                                  style:UIBarButtonItemStylePlain
-                                                                                 target:self action:@selector(toggle)];
+   //     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Flash Off"
+                                                                                  //style:UIBarButtonItemStylePlain
+     //                                                                            target:self //action:@selector(toggle)];
+        
+              self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:  [UIImage imageNamed:@"ic_flash_on_b"]
+                                                                                     style:UIBarButtonItemStylePlain
+                                                                                    target:self action:@selector(toggle)];
+        
     } else {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Flash On"
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Flash On"
+//                                                                                  style:UIBarButtonItemStylePlain
+//                                                                                 target:self action:@selector(toggle)];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:  [UIImage imageNamed:@"ic_flash_off_b"]
                                                                                   style:UIBarButtonItemStylePlain
                                                                                  target:self action:@selector(toggle)];
     }
